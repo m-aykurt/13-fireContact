@@ -1,6 +1,6 @@
 import firebase from "./firebase";
 import { useState, useEffect } from "react";
-import { successToastify } from "./customToasitfy";
+import { dangerToastify, successToastify , warningToastify} from "./customToasitfy";
 
 export const addInfo = (info) => {
   const contactRef = firebase.database().ref("contact");
@@ -33,5 +33,11 @@ export const useFetch = () => {
 export const deleteHandler = (id) => {
     const contactRef = firebase.database().ref("contact").child(id);
     contactRef.remove();
-    successToastify("Deleted successfully");
+    dangerToastify("Deleted successfully");
+}
+
+export const editHandler = (info) => {
+    const contactRef = firebase.database().ref("contact").child(info.id);
+    contactRef.update(info)
+    warningToastify("Updated Successfully")
 }

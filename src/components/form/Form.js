@@ -30,7 +30,7 @@ const FormComponent = ({ info, setInfo, handleFormSubmit }) => {
             </a>
           </div>
         </div>
-        <h2 className="contact-header">Addd Contact</h2>
+        <h2 className="contact-header">Add Contact</h2>
         <Form size="large" onSubmit={handleFormSubmit}>
           <Segment stacked>
             <Form.Input
@@ -66,7 +66,7 @@ const FormComponent = ({ info, setInfo, handleFormSubmit }) => {
               required
             />
             <Button color="teal" fluid size="large" type="submit">
-              Add
+              {info.id ? "Update" : "Add"}
             </Button>
           </Segment>
         </Form>
